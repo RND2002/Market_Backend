@@ -40,5 +40,9 @@ public class ServiceConsumer extends UserEntity {
 
     private String role = "ROLE_USER";
 
+    @OneToMany(mappedBy = "serviceConsumer")
+    @JsonIgnore
+    private List<JobRequest> jobRequestList;
+
 
 }

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,10 @@ import lombok.Setter;
 public class ProviderDetails {
     @Id
     private long id;
+
+    @Size(min = 3,max = 25,message = "Name of Service Provider or his shop is necessary")
+    @NotBlank(message = "name is mendatory")
+    private String identificationName;
 
     @NotBlank(message = "Job category cannot be blank")
     private String jobCategory;

@@ -45,7 +45,13 @@ public class ServiceProvider extends UserEntity {
     @JsonIgnore
     private ProviderDetails providerDetails;
 
+    @OneToMany(mappedBy = "serviceProvider")
+    @JsonIgnore
+    private List<JobRequest> jobRequest;
+
     private String role="ROLE_SERVICE_PROVIDER";
+
+
 
 
 }

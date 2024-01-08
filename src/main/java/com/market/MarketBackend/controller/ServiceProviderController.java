@@ -24,4 +24,9 @@ public class ServiceProviderController {
         return serviceProviderService.saveServiceProviderAddressToRepository(id,providerAddress);
     }
 
+//    @PutMapping("updateAddress/{id}")
+//    public ResponseEntity<String> updateAddressofServiceProvider(@PathVariable Long id,@RequestBody ProviderAddress providerAddress){
+//        return serviceProviderService.updateProviderAddress(id,providerAddress);
+//    }
+
 }
