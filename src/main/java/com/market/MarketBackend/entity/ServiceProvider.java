@@ -15,25 +15,22 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class ServiceProvider {
+@DiscriminatorValue("SERVICE_PROVIDER")
+public class ServiceProvider extends UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+//
+//    @NotBlank(message = "Username cannot be blank")
+//    @Size(min = 3, max = 50, message = "Username must be between 3 and 50 characters")
+//    @Column(unique = true)
+//    private String username;
+//
+//    @NotBlank(message = "Password cannot be blank")
+//    @Size(min = 6, message = "Password must be at least 6 characters")
+//    private String password;
 
-    @NotBlank(message = "Username cannot be blank")
-    @Size(min = 3, max = 50, message = "Username must be between 3 and 50 characters")
-    @Column(unique = true)
-    private String username;
 
-    @NotBlank(message = "Password cannot be blank")
-    @Size(min = 6, message = "Password must be at least 6 characters")
-    private String password;
-
-    @Pattern(regexp = "\\d{10}", message = "Phone number must be 10 digits")
-    private String phone;
-
-    @NotBlank(message = "Job category cannot be blank")
-    private String jobCategory;
 
 
     @OneToMany(mappedBy = "serviceProvider")
@@ -43,6 +40,10 @@ public class ServiceProvider {
     @OneToMany(mappedBy = "serviceProvider")
     @JsonIgnore
     private List<ProviderSubscription> subscriptions;
+
+    @OneToOne(mappedBy = "serviceProvider")
+    @JsonIgnore
+    private ProviderDetails providerDetails;
 
     private String role="ROLE_SERVICE_PROVIDER";
 

@@ -16,18 +16,19 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ServiceConsumer {
+@DiscriminatorValue("SERVICE_CONSUMER")
+public class ServiceConsumer extends UserEntity {
     @Id
     @GeneratedValue
     private long id;
-    @NotBlank(message = "Username can not be blank")
-    @Size(min = 3,max=25,message = "username should be within 3 to 25 characters")
-    @Column(unique = true)
-    private String username;
-
-    @NotBlank(message = "password can not be blank")
-    @Size(min = 6,max = 25,message = "password must be within 6 to 25 characters")
-    private String password;
+//    @NotBlank(message = "Username can not be blank")
+//    @Size(min = 3,max=25,message = "username should be within 3 to 25 characters")
+//    @Column(unique = true)
+//    private String username;
+//
+//    @NotBlank(message = "password can not be blank")
+//    @Size(min = 6,max = 25,message = "password must be within 6 to 25 characters")
+//    private String password;
 
     @OneToMany(mappedBy = "serviceConsumer")
     @JsonIgnore
